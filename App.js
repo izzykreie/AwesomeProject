@@ -51,7 +51,7 @@ export default class ExampleApp extends PureComponent {
     if (this.camera) {
       const options = {quality: 0.5, base64: true};
       const data = await this.camera.takePictureAsync(options);
-      // console.log(data.uri);
+      console.log(data.uri);
     }
   };
 }
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
   },
   preview: {
     flex: 1,

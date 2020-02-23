@@ -9,7 +9,7 @@ import {
 
 import {RNCamera} from 'react-native-camera';
 
-class ExampleApp extends PureComponent {
+class DeviceCamera extends PureComponent {
   render() {
     return (
       <View style={styles.container}>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'yellow',
+    backgroundColor: 'black',
   },
   preview: {
     flex: 1,
@@ -71,11 +71,11 @@ const styles = StyleSheet.create({
     flex: 0,
     backgroundColor: '#fff',
     borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 70,
+    padding: 5,
+    paddingHorizontal: 150,
     alignSelf: 'center',
     margin: 20,
   },
 });
 
-export default ExampleApp;
+export default DeviceCamera;

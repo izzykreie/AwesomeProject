@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import ExampleApp from './src/components/ExampleApp';
-import {AppRegistry} from 'react-native';
+import DeviceCamera from './src/components/camera';
+import CameraButton from './src/components/CameraButton';
+//import {AppRegistry} from 'react-native';
 
 export default class App extends Component {
   render() {
-    return <ExampleApp />;
+    return <CameraButton />;
+
+    //<DeviceCamera />;
   }
 }

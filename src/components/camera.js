@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react';
+import Video from 'react-native-video';
+import CameraRoll from '@react-native-community/cameraroll';
 import {
   AppRegistry,
   StyleSheet,
@@ -10,6 +12,14 @@ import {
 import {RNCamera} from 'react-native-camera';
 
 class DeviceCamera extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isRecording: false,
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -38,7 +48,11 @@ class DeviceCamera extends PureComponent {
         />
         <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity
-            onPress={this.takePicture.bind(this)}
+            onPress={
+              this.state.isRecording
+                ? this.stopRecording()
+                : this.Record.bind(this)
+            } //changed from onPress = {this.takePicture.bind(this)}
             style={styles.capture}>
             <Text style={{fontSize: 14}}> SNAP </Text>
           </TouchableOpacity>
@@ -47,11 +61,13 @@ class DeviceCamera extends PureComponent {
     );
   }
 
-  takePicture = async () => {
+  Record = async () => {
     if (this.camera) {
-      const options = {quality: 0.5, base64: true};
-      const data = await this.camera.takePictureAsync(options);
+      const options = {maxDuration: 5};
+      const data = await this.camera.recordAsync(options);
       console.log(data.uri);
+
+      CameraRoll.saveToCameraRoll(data.uri);
     }
   };
 }

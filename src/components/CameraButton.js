@@ -18,15 +18,15 @@ class CameraButton extends Component {
     return (
       <View style={styles.container}>
         <Button
-          onPress={this.showCamera}
-          title="click me to open the camera!"
+          onPress={this.state.showCamera ? this.hideCamera : this.showCamera}
+          title={
+            this.state.showCamera
+              ? 'Click me to hide the camera!'
+              : 'Click me to show the camera!'
+          }
           color="#841584"
         />
         {this.state.showCamera && <DeviceCamera />}
-        <Button
-          title="click me to close the camera!"
-          onPress={this.hideCamera}
-        />
       </View>
     );
   }

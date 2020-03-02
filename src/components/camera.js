@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 5,
     padding: 5,
-    paddingHorizontal: 150,
+    paddingHorizontal: 147,
     alignSelf: 'center',
     margin: 20,
   },
